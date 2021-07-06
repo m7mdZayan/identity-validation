@@ -21,16 +21,35 @@ const useStyles = makeStyles((theme) => ({
 
 function getSteps() {
   return [
-    "Select master blaster campaign settings",
-    "Create an ad group",
-    "Create an ad",
+    "upload front & back image of your national id",
+    "confirm your informations",
+    "face match",
   ];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return "Select campaign settings...";
+      return (
+        <>
+          <form className="nationalid__form">
+            <p className="form__label"> front image of your national id </p>
+            <div className="form__control">
+              <label class="fileContainer">
+                Upload front image
+                <input type="file" />
+              </label>
+            </div>
+            <p className="form__label mt-50">back image of your national id</p>
+            <div className="form__control">
+              <label class="fileContainer">
+                Upload back image
+                <input type="file" />
+              </label>
+            </div>
+          </form>
+        </>
+      );
     case 1:
       return "What is an ad group anyways?";
     case 2:
