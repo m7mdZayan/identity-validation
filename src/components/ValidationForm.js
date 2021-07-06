@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import NationalIdForm from "./nationalIdForm/NationalIdForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,26 +31,7 @@ function getSteps() {
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return (
-        <>
-          <form className="nationalid__form">
-            <p className="form__label"> front image of your national id </p>
-            <div className="form__control">
-              <label class="fileContainer">
-                Upload front image
-                <input type="file" />
-              </label>
-            </div>
-            <p className="form__label mt-50">back image of your national id</p>
-            <div className="form__control">
-              <label class="fileContainer">
-                Upload back image
-                <input type="file" />
-              </label>
-            </div>
-          </form>
-        </>
-      );
+      return <NationalIdForm />;
     case 1:
       return "What is an ad group anyways?";
     case 2:
@@ -95,7 +77,7 @@ function ValidationForm() {
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>
+            <Typography component={"div"} className={classes.instructions}>
               {getStepContent(activeStep)}
             </Typography>
             <div>
