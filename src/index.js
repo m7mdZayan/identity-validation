@@ -1,14 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { UserContextProvider } from "./context/userData";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <UserContextProvider>
+      <App />
+    </UserContextProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

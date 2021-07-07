@@ -4,11 +4,12 @@
   /* font-family: "Poppins", sans-serif !important; */
 }
 
-.nationalid__form {
+.nationalid__form,
+.userInfo {
   background-color: #f8f9fa;
   padding: 40px 40px 60px;
   width: 60%;
-  margin: 50px auto;
+  margin: 60px auto;
   border-radius: 15px;
 }
 
@@ -22,6 +23,10 @@
 
 .mt-50 {
   margin-top: 50px !important;
+}
+
+.mb-40 {
+  margin-bottom: 40px !important;
 }
 .fileContainer {
   overflow: hidden;
@@ -44,4 +49,20 @@
 
 .fileContainer [type="file"]::-webkit-file-upload-button {
   visibility: hidden;
+}
+
+.userInfo span {
+  color: #3f51b5;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.userInfo p {
+  display: inline-block;
+}
+
+.userInfo__row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
 }

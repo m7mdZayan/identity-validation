@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import NationalIdForm from "./nationalIdForm/NationalIdForm";
+import UserInfo from "./userInformation/UserInfo";
+
+let handleNext;
+let handleBack;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,9 +35,9 @@ function getSteps() {
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return <NationalIdForm />;
+      return <NationalIdForm handleNext={handleNext} />;
     case 1:
-      return "What is an ad group anyways?";
+      return <UserInfo handleNext={handleNext} handleBack={handleBack} />;
     case 2:
       return "This is the bit I really care about!";
     default:
@@ -46,11 +50,11 @@ function ValidationForm() {
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
-  const handleNext = () => {
+  handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
-  const handleBack = () => {
+  handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
@@ -73,14 +77,14 @@ function ValidationForm() {
             <Typography className={classes.instructions}>
               All steps completed
             </Typography>
-            <Button onClick={handleReset}>Reset</Button>
+            {/* <Button onClick={handleReset}>Reset</Button> */}
           </div>
         ) : (
           <div>
             <Typography component={"div"} className={classes.instructions}>
               {getStepContent(activeStep)}
             </Typography>
-            <div>
+            {/* <div>
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
@@ -91,7 +95,7 @@ function ValidationForm() {
               <Button variant="contained" color="primary" onClick={handleNext}>
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
