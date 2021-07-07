@@ -66,3 +66,9 @@
   justify-content: space-evenly;
   margin-bottom: 20px;
 }
+
+.button--center {
+  display: block !important;
+  margin: 20px auto !important;
+  width: 150px;
+}

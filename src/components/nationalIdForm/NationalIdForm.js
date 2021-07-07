@@ -46,14 +46,20 @@ const NationalIdForm = ({ handleNext }) => {
             .then((data) => {
               console.log(data);
               setLoading(false);
-              setUserData({
-                info: data.data.result,
-                transactionId: data.data.transaction_id,
-              });
-              handleNext();
+
+              if (data.data.result) {
+                setUserData({
+                  info: data.data.result,
+                  transactionId: data.data.transaction_id,
+                });
+                handleNext();
+              } else {
+                toast.error("Please upload good images of your national id");
+              }
             })
             .catch((e) => {
               console.log(e);
+              console.log(e.response);
               toast.error("error");
             });
         })

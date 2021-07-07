@@ -7,6 +7,7 @@ import StepLabel from "@material-ui/core/StepLabel";
 import Typography from "@material-ui/core/Typography";
 import NationalIdForm from "./nationalIdForm/NationalIdForm";
 import UserInfo from "./userInformation/UserInfo";
+import FaceMatch from "./faceMatch/FaceMatch";
 
 let handleNext;
 let handleBack;
@@ -39,7 +40,7 @@ function getStepContent(stepIndex) {
     case 1:
       return <UserInfo handleNext={handleNext} handleBack={handleBack} />;
     case 2:
-      return "This is the bit I really care about!";
+      return <FaceMatch />;
     default:
       return "Unknown stepIndex";
   }
