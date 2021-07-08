@@ -3,3 +3,19 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+/* utilites */
+
+.mt-50 {
+  margin-top: 50px !important;
+}
+
+.mb-40 {
+  margin-bottom: 40px !important;
+}
+
+.button--center {
+  display: block !important;
+  margin: 20px auto !important;
+  width: 150px;
+}

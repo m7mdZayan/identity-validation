@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   padding: 40px 0;
-  /* font-family: "Poppins", sans-serif !important; */
 }
 
 .nationalid__form,
@@ -21,13 +20,6 @@
   margin-bottom: 35px;
 }
 
-.mt-50 {
-  margin-top: 50px !important;
-}
-
-.mb-40 {
-  margin-bottom: 40px !important;
-}
 .fileContainer {
   overflow: hidden;
   background-color: #6c757d;
@@ -47,30 +39,30 @@
   color: #000;
 }
 
+@media screen and (max-width: 1500px) {
+  .fileContainer [type="file"] {
+    right: 3%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .fileContainer [type="file"] {
+    right: 0;
+    display: inline-block;
+    /* width: 50%; */
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .fileContainer [type="file"] {
+    right: 2%;
+    display: inline-block;
+    top: 50px;
+  }
+}
+
 .fileContainer [type="file"]::-webkit-file-upload-button {
   visibility: hidden;
-}
-
-.userInfo span {
-  color: #3f51b5;
-  font-weight: 700;
-  margin-right: 10px;
-}
-
-.userInfo p {
-  display: inline-block;
-}
-
-.userInfo__row {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 20px;
-}
-
-.button--center {
-  display: block !important;
-  margin: 20px auto !important;
-  width: 150px;
 }
 
 .verification {

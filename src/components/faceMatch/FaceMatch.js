@@ -7,7 +7,7 @@ import Loader from "../loadingSpinner/Loader";
 import toast, { Toaster } from "react-hot-toast";
 import { MdVerifiedUser } from "react-icons/md";
 
-const FaceMatch = ({ handleReset }) => {
+const FaceMatch = ({ handleReset, handleBack }) => {
   const webCamRef = useRef(null);
   const [userSelfie, setUserSelfie] = useState("");
   const [userData] = useContext(userContext);
@@ -41,7 +41,9 @@ const FaceMatch = ({ handleReset }) => {
         if (response.data.result.is_similar) {
           setIdentityVerified(true);
         } else {
-          toast.error("identity not verified");
+          toast.error("identity not verified! please take another photo", {
+            duration: 4000,
+          });
         }
         console.log(response.data);
       })
@@ -91,6 +93,7 @@ const FaceMatch = ({ handleReset }) => {
             >
               take photo
             </Button>
+            <Button onClick={handleBack}>Back</Button>
           </>
         ) : (
           <div className="verification">

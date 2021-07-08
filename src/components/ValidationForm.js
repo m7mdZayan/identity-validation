@@ -41,7 +41,7 @@ function getStepContent(stepIndex) {
     case 1:
       return <UserInfo handleNext={handleNext} handleBack={handleBack} />;
     case 2:
-      return <FaceMatch handleReset={handleReset} />;
+      return <FaceMatch handleReset={handleReset} handleBack={handleBack} />;
     default:
       return "Unknown stepIndex";
   }

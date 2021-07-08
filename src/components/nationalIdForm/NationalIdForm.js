@@ -84,9 +84,6 @@ const NationalIdForm = ({ handleNext }) => {
         })
         .catch((e) => console.log(e));
     }
-
-    // console.log(frontImg);
-    // console.log(backImg);
   };
 
   return (

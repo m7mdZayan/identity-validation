@@ -1,0 +1,23 @@
+.userInfo span {
+  color: #3f51b5;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.userInfo p {
+  display: inline-block;
+}
+
+.userInfo__row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  .userInfo__row {
+    display: flex;
+    margin-bottom: 20;
+    flex-direction: column;
+  }
+}
