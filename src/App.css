@@ -72,3 +72,13 @@
   margin: 20px auto !important;
   width: 150px;
 }
+
+.verification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.verification p {
+  margin-top: 20px;
+}

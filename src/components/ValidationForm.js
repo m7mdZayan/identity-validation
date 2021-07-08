@@ -11,6 +11,7 @@ import FaceMatch from "./faceMatch/FaceMatch";
 
 let handleNext;
 let handleBack;
+let handleReset;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +41,7 @@ function getStepContent(stepIndex) {
     case 1:
       return <UserInfo handleNext={handleNext} handleBack={handleBack} />;
     case 2:
-      return <FaceMatch />;
+      return <FaceMatch handleReset={handleReset} />;
     default:
       return "Unknown stepIndex";
   }
@@ -59,7 +60,7 @@ function ValidationForm() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleReset = () => {
+  handleReset = () => {
     setActiveStep(0);
   };
 

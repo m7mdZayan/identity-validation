@@ -32,25 +32,44 @@ const NationalIdForm = ({ handleNext }) => {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         })
-        .then((data) => {
-          console.log(data.data);
+        .then((result) => {
+          // console.log(result.data);
+          setUserData({ accessToken: result.data.access_token });
 
-          axios
-            .post("http://localhost:3000/api/ocr", {
-              method: "POST",
-              url: "https://valifystage.com/api/v1/ocr/",
+          let data = JSON.stringify({
+            document_type: "egy_nid",
+            data: {
+              bundle_key: "3751eb83f94d4e8492f212f1ba1ebc15",
               front_img: frontImg,
               back_img: backImg,
-              access_token: data.data.token_type + " " + data.data.access_token,
-            })
+              lang: "en",
+            },
+          });
+
+          let config = {
+            method: "POST",
+            url: "https://valifystage.com/api/v1/ocr/",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization:
+                result.data.token_type + " " + result.data.access_token,
+            },
+            data: data,
+          };
+
+          axios
+            .post("http://localhost:3000/api/ocr", config)
             .then((data) => {
-              console.log(data);
+              // console.log(data);
               setLoading(false);
 
               if (data.data.result) {
-                setUserData({
-                  info: data.data.result,
-                  transactionId: data.data.transaction_id,
+                setUserData((d) => {
+                  return {
+                    ...d,
+                    info: data.data.result,
+                    transactionId: data.data.transaction_id,
+                  };
                 });
                 handleNext();
               } else {

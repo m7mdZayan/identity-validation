@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UserInfo = ({ handleNext, handleBack }) => {
-  const [userData, setUserData] = useContext(userContext);
+  const [userData] = useContext(userContext);
   const classes = useStyles();
 
   return (
