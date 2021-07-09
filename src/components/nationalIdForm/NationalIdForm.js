@@ -33,7 +33,6 @@ const NationalIdForm = ({ handleNext }) => {
           },
         })
         .then((result) => {
-          // console.log(result.data);
           setUserData({ accessToken: result.data.access_token });
 
           let data = JSON.stringify({
@@ -60,7 +59,6 @@ const NationalIdForm = ({ handleNext }) => {
           axios
             .post("http://localhost:3000/api/ocr", config)
             .then((data) => {
-              // console.log(data);
               setLoading(false);
 
               if (data.data.result) {
@@ -73,12 +71,16 @@ const NationalIdForm = ({ handleNext }) => {
                 });
                 handleNext();
               } else {
-                toast.error("Please upload good images of your national id");
+                if (data.data.message) {
+                  toast.error(data.data.message);
+                } else {
+                  toast.error(
+                    "please upload good images of your national id card!"
+                  );
+                }
               }
             })
             .catch((e) => {
-              console.log(e);
-              console.log(e.response);
               toast.error("error");
             });
         })
@@ -93,6 +95,7 @@ const NationalIdForm = ({ handleNext }) => {
         toastOptions={{
           style: {
             fontSize: "25px",
+            padding: "15px",
           },
         }}
       />

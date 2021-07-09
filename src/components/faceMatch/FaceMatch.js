@@ -45,7 +45,6 @@ const FaceMatch = ({ handleReset, handleBack }) => {
             duration: 4000,
           });
         }
-        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
